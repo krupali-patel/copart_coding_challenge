@@ -17,7 +17,10 @@ Follow Steps to Execute :
   
   
   
-  Question 1, 2 - Done by Krupali
+  Question 1- Done by Shivangee
+ 
+  Question 2- Done by Krupali
+
   Question 3 - Shivangee, Krupali
  
  
