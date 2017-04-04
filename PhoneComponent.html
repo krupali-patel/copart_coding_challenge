@@ -1,0 +1,99 @@
+   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<script type="text/javascript">
+/*Start of phone number formating */
+var n;
+var p;
+var p1;
+function format_phone(){ //format the phone  number
+
+p=p1.value
+
+if(p.length==3){ //as soon as the length becomes 3, place brackets to enclose first three digits
+    pp=p;
+    d4=p.indexOf('(')
+    d5=p.indexOf(')')
+    if(d4==-1){
+        pp="("+pp;
+    }
+    if(d5==-1){
+        pp=pp+") ";
+    }
+    document.form4.phone_number.value="";
+    document.form4.phone_number.value=pp;
+	
+}
+if(p.length>3){ //close the bracket after the 3rd digit
+    d1=p.indexOf('(')
+    d2=p.indexOf(')')
+    if (d2==-1){
+        l30=p.length;
+        p30=p.substring(0,4);
+        p30=p30+") "
+        p31=p.substring(5,l30);
+        pp=p30+p31;
+        document.form4.phone_number.value="";
+        document.form4.phone_number.value=pp;
+		
+    }
+    }
+if(p.length>7){ //when the length becomes greater than 3, keep a count to track where to place the hyphen
+    p11=p.substring(d1+1,d2);
+    if(p11.length>4){
+    p12=p11;
+    l12=p12.length;
+    l15=p.length
+    p13=p11.substring(0,4);
+    p14=p11.substring(4,l12);
+    p15=p.substring(d2+1,l15);
+    document.form4.phone_number.value="";
+    pp="("+p13+") "+p14+p15;
+    document.form4.phone_number.value=pp;
+	
+    }
+    l16=p.length;
+    p16=p.substring(d2+2,l16);
+    l17=p16.length;
+    if(l17>3&&p16.indexOf('-')==-1){
+        p17=p.substring(d2+1,d2+5);
+        p18=p.substring(d2+5,l16);
+        p19=p.substring(0,d2+1);
+    pp=p19+p17+"-"+p18;
+	
+    document.form4.phone_number.value="";
+    document.form4.phone_number.value=pp;
+	
+    }
+	
+	 
+	
+}
+
+setTimeout(format_phone,100)
+}
+
+
+function getIt(m){
+
+    n=m.name;
+    p1=m
+	
+    format_phone()
+	
+}
+/* End of phone number formating */
+
+</script>
+
+</head>
+
+<body>
+<form id="form4" name="form4" method="post" action="" onSubmit="return validation();">
+<input name="phone_number" type="text" id="phone_number" style="float:left; margin-left:20px;"  align="top" value="Phone Number" 
+    onFocus="if(this.value==this.defaultValue)this.value='';" maxlength="14" onclick="javascript:getIt(this)"/>
+    </form>
+</body>
+</html>
